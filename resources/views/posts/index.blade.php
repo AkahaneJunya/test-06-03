@@ -13,7 +13,7 @@
         <div class='posts'>
             @foreach($posts as $post)
                 <div class='post'>
-                    <h2 class='title'>{{ $post->title}}</h2>
+                    <a href="/posts/{{ $post->id }}"><h2 class='title'>{{ $post->title }}</h2></a>
                     <p class='body'>{{ $post->body }}</p>
                 </div>
             @endforeach
@@ -21,3 +21,12 @@
         <div class='paginate'>{{ $posts->links() }}</div>
     </body>
 </html>
+
+
+{{--
+以下コメント
+
+Controllerから受け取ったデータは、{{$変数名}}で表示する。
+bladeでは@を付けるとifやforなどのphp構文を使うことができる。
+
+--}}
