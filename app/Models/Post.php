@@ -11,7 +11,11 @@ class Post extends Model
 //そのためModelクラスを継承しておけば色々なメソッドを自分で定義することなく使えて便利。
 {
     use HasFactory;
-
+    
+    protected $fillable = [
+        'title',
+        'body'
+        ];
     
     public function getPaginateByLimit(int $limit_count = 5)
     //intは整数型という意味。
