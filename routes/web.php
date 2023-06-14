@@ -22,6 +22,6 @@ Route::get('/', [PostController::class, 'index']);
 
 //"/"にアクセスした時にPOstController内のclass内のindexというメソッド(関数)を返す。
 
-
+Route::get('/posts/create',[PostController::class,'create']);
 Route::get('/posts/{post}',[PostController::class,'show']);
 //{}内のpostは変化する、idの値が入る
