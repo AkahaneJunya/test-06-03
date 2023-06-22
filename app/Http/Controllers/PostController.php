@@ -14,7 +14,7 @@ class PostController extends Controller
     {
         //indexという名前の関数で処理をする(名前は自分でつけた),その際Post.phpのPostというクラスをインスタンス化して、$postと名前をつけた。
 
-        return view('posts.index')->with(['posts' => $post->getPaginateByLimit(1)]);
+        return view('posts.index')->with(['posts' => $post->getPaginateByLimit(5)]);
         //この行ではviewにデータを埋め込んでいるイメージ。
         //retrun()のかっこの中には'Bladeファイル名の「.blade.php」より前の部分'を書く。postsファイル内のindex.blade.phpという意味
         //withはviewファイルのindex.blade.php(のposts)に情報を渡してる。
@@ -39,5 +39,20 @@ class PostController extends Controller
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
     }
+    
+    public function edit(Post $post)
+    {
+        return view('posts/edit')->with(['post' => $post]);
+    }
+    
+    public function update(PostRequest $request, Post $post)
+    {
+        $input_post = $request['post'];
+        $post->fill($input_post)->save();
+
+        return redirect('/posts/' . $post->id);
+    }
+    
+    
 }
 
