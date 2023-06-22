@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 //class 子クラス名 extends 親クラス名 でクラスを継承することができる。
@@ -11,6 +12,7 @@ class Post extends Model
 //そのためModelクラスを継承しておけば色々なメソッドを自分で定義することなく使えて便利。
 {
     use HasFactory;
+    use SoftDeletes;
     
     protected $fillable = [
         'title',
